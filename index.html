@@ -20,15 +20,15 @@
     // tam pencere tuval (Unity'nin varsayılan şablonu 960x600 sabit kutu, telefonda arayüzün üstü taşıyordu)
     var buildUrl = "Build";
     var s = document.createElement("script");
-    s.src = buildUrl + "/f32e526f15e51e6515c8cc3823334b19.loader.js";
+    s.src = buildUrl + "/de09c850d3e7403620de99ec83da621a.loader.js";
     s.onload = function () {
       createUnityInstance(document.getElementById("unity-canvas"), {
-        dataUrl: buildUrl + "/d238b89b3672d4ae5ae3d03290e9046c.data.unityweb",
+        dataUrl: buildUrl + "/59ce8e07e210b549f8a18df42f78f6e0.data.unityweb",
         frameworkUrl: buildUrl + "/a4f05b85f02475f32fe17e47a05a3f8e.framework.js.unityweb",
-        codeUrl: buildUrl + "/d41bfc2315b60eabd918affc439c6058.wasm.unityweb",
+        codeUrl: buildUrl + "/c5c2915b09b698b356ff7b8b8f409b09.wasm.unityweb",
         companyName: "Agorga",
         productName: "Cep Kahramanı",
-        productVersion: "0.1.0",
+        productVersion: "0.2.0",
         devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       }, function (p) { document.getElementById("durum").textContent = yaz + Math.round(p * 100) + "%"; })
       .then(function (u) { window.unityInstance = u; document.getElementById("durum").remove(); })
