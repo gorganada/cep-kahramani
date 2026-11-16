@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1E1410">
+  <title>Cep Kahramanı</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #1E1410; overflow: hidden; touch-action: none; -webkit-user-select: none; user-select: none; }
+    #unity-canvas { position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); height: 100vh; height: 100dvh; width: min(100vw, calc(100dvh * 9 / 16)); aspect-ratio: auto; display: block; background: #1E1410; outline: none; }
+    #durum { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; color: #e6dfd0; font: 18px Georgia, serif; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <div id="durum">…</div>
+  <script>
+    var yaz = /^tr/i.test(navigator.language || "") ? "Cep Kahramanı yükleniyor… " : "Pocket Hero loading… ";
+    document.getElementById("durum").textContent = yaz;
+    // tam pencere tuval (Unity'nin varsayılan şablonu 960x600 sabit kutu, telefonda arayüzün üstü taşıyordu)
+    var buildUrl = "Build";
+    var s = document.createElement("script");
+    s.src = buildUrl + "/5013f5430cbff47f9863e895906db57e.loader.js";
+    s.onload = function () {
+      createUnityInstance(document.getElementById("unity-canvas"), {
+        dataUrl: buildUrl + "/477545e37786abc7b0a03b250bee9a7d.data.unityweb",
+        frameworkUrl: buildUrl + "/a4f05b85f02475f32fe17e47a05a3f8e.framework.js.unityweb",
+        codeUrl: buildUrl + "/e1c4f08bf288293554991ce8af8fb412.wasm.unityweb",
+        companyName: "Agorga",
+        productName: "Cep Kahramanı",
+        productVersion: "0.1.0",
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+      }, function (p) { document.getElementById("durum").textContent = yaz + Math.round(p * 100) + "%"; })
+      .then(function (u) { window.unityInstance = u; document.getElementById("durum").remove(); })
+      .catch(function (m) { document.getElementById("durum").textContent = "Hata: " + m; });
+    };
+    document.body.appendChild(s);
+  </script>
+</body>
+</html>
