@@ -23,12 +23,12 @@
     s.src = buildUrl + "/75aa9ffd2d3f315109e91e674c352f97.loader.js";
     s.onload = function () {
       createUnityInstance(document.getElementById("unity-canvas"), {
-        dataUrl: buildUrl + "/9c5850ea4753cb43b5bac40c5937453e.data.unityweb",
+        dataUrl: buildUrl + "/932ba48cc7ef262112e5f035a4b2ce35.data.unityweb",
         frameworkUrl: buildUrl + "/a4f05b85f02475f32fe17e47a05a3f8e.framework.js.unityweb",
-        codeUrl: buildUrl + "/2982427103bf893a5e2400df077b52cf.wasm.unityweb",
+        codeUrl: buildUrl + "/ece569d5821a52dd14503d63695fedeb.wasm.unityweb",
         companyName: "Agorga",
         productName: "Cep Kahramanı",
-        productVersion: "0.2.0",
+        productVersion: "0.2.1",
         devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       }, function (p) { document.getElementById("durum").textContent = yaz + Math.round(p * 100) + "%"; })
       .then(function (u) { window.unityInstance = u; document.getElementById("durum").remove(); })
